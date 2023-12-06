@@ -1,0 +1,92 @@
+.main-menu {
+    background-color: #652ee1;
+    color: #fff;
+    height: 50px;
+}
+.main-menu .category-wrapper {
+    position: relative;
+}
+
+.main-menu .navbar{
+    padding: 0px 0px;
+    position: relative;
+}
+.main-menu .navbar .navbar-main li a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    display: block;
+    padding: 11.65px 15px;
+    border-top: 2px solid #652ee1;
+    text-transform: uppercase;
+    position: relative;
+}
+.main-menu .navbar .navbar-main li> a:hover,
+.main-menu .navbar .navbar-main li> a.active {
+    color: #fff;
+    border-top: 2px solid #bd27d9;
+}
+.main-menu .nav-right {
+    position: absolute;
+    right: 0px;
+    overflow: hidden;
+}
+.navbar-sticky {
+    position: fixed;
+    left:0px;
+    top:0px;
+    z-index: 3;
+    width: 100%;
+}
+.main-menu li.sticky-show {
+    display: none;
+    text-align: right;
+}
+.main-menu.navbar-sticky li.sticky-show {
+    display: inline-block;
+}
+.main-menu .nav-right li.cart-item a {
+    background: #bd27d9;
+    border-top: 2px solid #bd27d9;
+    height: 50px;
+    box-shadow: 0px 0px 3px #8960f3;
+}
+.main-menu .nav-right li.cart-item a {
+    position: relative;
+}
+.main-menu .nav-right .item-count {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #652ee1;
+    color: #fff;
+}
+
+/* Scroll to top button */
+.main-menu .scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 12px;
+}
+.main-menu .scroll-top button {
+    border: 0px;
+    background-color: #652ee1;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+    border: 0px;
+    border-radius: 4px;
+    outline: none;
+}
+.main-menu .scroll-top svg {
+    font-size: 18px;
+}

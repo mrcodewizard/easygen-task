@@ -1,0 +1,17 @@
+{
+  "name": "easygen-task",
+  "version": "1.0.0",
+  "description": "It is a test task for easy generator developed by Mubashir Rahman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:frontend": "npm run start --prefix frontend",
+    "start:backend": "npm run start --prefix backend"
+  },
+  "keywords": [
+    "react-nestapp",
+    "fullstck"
+  ],
+  "author": "Mubashir Rahman",
+  "license": "ISC"
+}

@@ -1,0 +1,265 @@
+body {
+    background-color: #f5f5f5;
+}
+.breadcrumb-holder {
+    position: relative;
+    padding: 50px 0px 50px;
+    background-image: url("../img/breadcrumb.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.breadcrumb-holder::before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0,0,0,0.80);
+}
+
+.breadcrumb-holder h2 {
+    position: relative;
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+    font-size: 40px;
+    padding-bottom: 18px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.breadcrumb-holder h2::before {
+    position: absolute;
+    content: '';
+    left: 52%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    width: 120px;
+    height: 2px;
+    background-color: #cccccc;
+}
+.breadcrumb-holder h2:after {
+    position: absolute;
+    content: '';
+    left: 47%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    width: 25px;
+    height: 3px;
+    background-color: #652ee1;
+}
+.breadcrumb-holder ul {
+    padding-top: 15px;
+    margin-left: -40px;
+    text-align: center;
+}
+.breadcrumb-holder li {
+    color: #ffffff;
+    display: inline-block;
+    padding-left: 20px;
+    position: relative;
+}
+.breadcrumb-holder .breadcrumb-item+.breadcrumb-item::before {
+   color: #fff;
+   margin: 0px 10px;
+}
+.breadcrumb-holder ul > li > a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Account forms */
+.account-content .flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.account-content .account-inner {
+    margin: 150px 0px;
+    background: #fff;
+    padding: 40px 60px;
+}
+.account-inner .section-title {
+    position: relative;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.account-inner .account-heading {
+    position: relative;
+    font-size: 36px;
+    color: #322f2f;
+    font-weight: 700;
+    line-height: 1.3em;
+    padding-bottom: 22px;
+}
+.account-inner .separator {
+    position: relative;
+    width: 130px;
+    float: left;
+}
+.account-inner .separator::before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    bottom: 0px;
+    width: 130px;
+    height: 2px;
+    background-color: #cccccc;
+}
+.account-inner .separator::after {
+    position: absolute;
+    content: '';
+    left: 0px;
+    bottom: 0px;
+    width: 40px;
+    height: 4px;
+    background-color: #652ee1;
+}
+.account-inner .account-form {
+    margin: 60px 0px 30px;
+}
+.account-form .form-group {
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #848484;
+}
+.account-form input.form-control {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: none;
+    border-radius: 0px;
+    line-height: 30px;
+    padding: 8px 50px 8px 20px;
+    height: 50px;
+    border: 1px solid #f4f4f4;
+    transition: all 300ms ease;
+    -webkit-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+}
+.account-form input.form-control:focus {
+    border: 1px solid #652ee1;
+}
+.account-form .form-group .icon {
+    position: absolute;
+    right: 15px;
+    top:12px;
+}
+.account-form .form-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.account-form .login-social {
+    display: flex;
+    align-items: center;
+}
+.account-form .login-social span {
+    position: relative;
+    font-size: 14px;
+    color: #848484;
+}
+.account-form .login-social a {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: #652ee1;
+    margin: 0px 0px 0px 8px;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+.account-form .login-social a.facebook {
+    background: #3b5998;
+}
+.account-form .login-social a.twitter {
+    background: #33ccfe;;
+}
+.account-form .login-social a.google {
+    background: #dd4b39;
+}
+.account-form .login-social a svg {
+    font-size: inherit;
+}
+.form-bottom .btn-login {
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 30px;
+    color: #ffffff;
+    padding: 10px 40px 10px;
+    font-weight: 500;
+    overflow: hidden;
+    letter-spacing: 1px;
+    border-radius: 0px;
+    background-color: #322f2f;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+}
+.form-bottom .btn-login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    background-color: #652ee1;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: scale(1, 0.5);
+    transform: scale(1, 0.5);
+}
+.form-bottom .btn-login:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+}
+.form-bottom .btn-login:hover {
+    color: #fff;
+}
+.btn-login .text {
+    position: relative;
+    z-index: 1;
+    transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -webkit-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+}
+.form-footer p {
+    font-size: 14px;
+    color: #322f2f;
+    text-align: left;
+    margin-top: 25px;
+}
+.form-footer p a {
+    text-decoration: none;
+    color: #652ee1;
+}
