@@ -44,12 +44,7 @@ export class AuthService {
       try {
          /** check if a user is already register */
          const { email, password } = user;
-         const result = await this.userModel.findOne({   
-            $and: [
-               { email: email },
-               { password: password },
-            ]
-         });
+         const result = await this.userModel.findOne({ email: email });
 
          if(result) return null;
          const newUser = new this.userModel(user);

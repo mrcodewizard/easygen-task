@@ -27,7 +27,9 @@ function App() {
               <Routes>
                 {
                   protectedRoute.map(function(route) {
-                    return <Route path={route.path} element={<ProtectedRoute>{route.element}</ProtectedRoute>}  />
+                    return <Route element={<ProtectedRoute />} >
+                              <Route path={route.path} element={route.element} />
+                           </Route>
                   })
                 }
               </Routes>

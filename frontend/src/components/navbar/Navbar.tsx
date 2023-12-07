@@ -25,9 +25,9 @@ const Navmenu = () => {
 													<li>
 														<Nav.Link
 															as={NavLink}
-															to="/"
+															to="/dashboard"
 														>
-															Home{" "}
+															Home {" "}
 														</Nav.Link>
 													</li>
 													<li>
