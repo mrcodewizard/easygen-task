@@ -1,6 +1,5 @@
 export interface LoginInterface {
-   name?: string,
-   username: string,
+   email: string,
    password: string
 }
 export interface AuthInterface extends LoginInterface {

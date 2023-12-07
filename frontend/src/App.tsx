@@ -7,8 +7,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { publicRoutes } from './routes/publicRoute';
-import { protectedRoute } from './routes/protectedRoute';
+import ProtectedRoute, { protectedRoute } from './routes/protectedRoute';
 import Footer from './components/footer/Footer';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -18,18 +19,16 @@ function App() {
             <div className="inner-content">
               <Routes>
                 {
-                  publicRoutes.map(route => {
-                    return(
-                      <Route path={route.path} element={ <route.element />} />
-                    )
-                  }) 
+                  publicRoutes.map(function(route) {
+                    return <Route path={route.path} element={route.element}  />
+                  })
                 }
+              </Routes>
+              <Routes>
                 {
-                  protectedRoute.map(route => {
-                    return(
-                      <Route path={route.path} element={ <route.element />} />
-                    )
-                  }) 
+                  protectedRoute.map(function(route) {
+                    return <Route path={route.path} element={<ProtectedRoute>{route.element}</ProtectedRoute>}  />
+                  })
                 }
               </Routes>
             </div>

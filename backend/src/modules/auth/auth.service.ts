@@ -20,10 +20,10 @@ export class AuthService {
 
    async authenticate(user): Promise<User| null > {
       try{
-         const { username, password } = user;
+         const { email, password } = user;
          const result = await this.userModel.findOne({   
             $and: [
-               { username: username },
+               { email: email },
                { password: password },
                // Add more conditions as needed
             ]
@@ -43,12 +43,11 @@ export class AuthService {
    async register(user):  Promise<User>{
       try {
          /** check if a user is already register */
-         const { username, password } = user;
+         const { email, password } = user;
          const result = await this.userModel.findOne({   
             $and: [
-               { username: username },
+               { email: email },
                { password: password },
-               // Add more conditions as needed
             ]
          });
 

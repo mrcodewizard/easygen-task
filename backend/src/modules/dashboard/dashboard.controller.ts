@@ -13,7 +13,7 @@ export class DashboardController {
   @Get("/")
   async welcomeScreen(@Req() request: Request) {
       try {
-        const cookie = request.cookies['jwt'];
+        const cookie = request.header['jwt'];
         const data = await this.jwtService.verifyAsync(cookie);
 
         if (!data) {

@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Req, Res, Body } from '@nestjs/common';
-import { Request, Response } from "express";
+import { Request, Response, response } from "express";
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { AuthService } from './auth.service';
@@ -23,8 +23,10 @@ export class AuthController {
     try {
       await loginSchema.validateAsync(user);
       const result = await this.authService.authenticate(user);
-      const jwt = await this.jwtService.signAsync({id: result.username});
+      const jwt = await this.jwtService.signAsync({id: result.email});
       response.cookie('jwt', jwt, { httpOnly: true});
+
+      result.token = jwt;
 
       if(!result) {
         return {
@@ -32,7 +34,11 @@ export class AuthController {
           msg: "Username or password is incorrect"
         };
       } else {
-        response.redirect('/dashboard');
+        return {
+          status: 200,
+          msg: "User loggedin successfully",
+          user: result
+        };
       }
     }
     catch(error) {
@@ -45,11 +51,16 @@ export class AuthController {
   }
 
   @Post("/register")
-  async register(@Body() user: AuthInterface) {
+  async register(@Body() user: AuthInterface, @Res({ passthrough: true}) response: Response) {
     try {
       await singupSchema.validateAsync(user);
-      const response = await this.authService.register(user);
-      if(!response) {
+      const result = await this.authService.register(user);
+      const jwt = await this.jwtService.signAsync({id: result.email});
+      response.cookie('jwt', jwt, { httpOnly: true});
+
+      result.token = jwt;
+
+      if(!result) {
         return {
           status: 403,
           msg: "Unable to register user"
@@ -57,9 +68,9 @@ export class AuthController {
       } else {
         return {
           status: 200,
-          msg: "User registered succesfully",
-          user: response
-        }
+          msg: "User registered successfully",
+          user: result
+        };
       }
     }
     catch(error) {
