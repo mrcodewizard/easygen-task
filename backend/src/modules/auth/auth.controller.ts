@@ -55,17 +55,18 @@ export class AuthController {
     try {
       await singupSchema.validateAsync(user);
       const result = await this.authService.register(user);
-      const jwt = await this.jwtService.signAsync({id: result.email});
-      response.cookie('jwt', jwt, { httpOnly: true});
-
-      result.token = jwt;
-
+      
       if(!result) {
         return {
           status: 403,
-          msg: "Unable to register user"
+          msg: "User seems to be already registered. Please login instead"
         };
       } else {
+        /** use email to set session cookie */
+        const jwt = await this.jwtService.signAsync({id: result.email});
+        response.cookie('jwt', jwt, { httpOnly: true});
+        result.token = jwt;
+
         return {
           status: 200,
           msg: "User registered successfully",
@@ -74,10 +75,18 @@ export class AuthController {
       }
     }
     catch(error) {
-      console.error('Validation error:', error.details[0].message);
-      return {
-       status: 400,
-       msg: `Error! ${error.details[0].message}`
+      if (error instanceof Error && error.name !== 'ValidationError') {
+        console.error('Database error:', error.message);
+        return {
+          status: 400,
+          msg: `Error! Unable to register user`
+        }
+      } else {
+        console.error('Validation error:', error.details[0].message);
+        return {
+          status: 400,
+          msg: `Error! ${error.details[0].message}`
+        }
       }
     }
   }
